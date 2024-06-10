@@ -1,0 +1,7 @@
+services:
+    hh-node:
+        build:
+            context: hardhat/
+            dockerfile: Dockerfile
+        ports:
+            - "8545:8545"
