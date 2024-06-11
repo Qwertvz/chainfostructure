@@ -7,6 +7,12 @@ git clone https://github.com/Qwertvz/chainfostructure.git
 git submodule init
 ```
 
+or
+
+``` bash
+git clone --recurse-submodules https://github.com/chaconinc/MainProject
+```
+
 Running node
 ``` bash
 docker-compose up -f hardhat-node.yaml up -d --build
