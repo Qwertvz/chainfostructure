@@ -6,10 +6,10 @@ services:
         ports:
             - "8545:8545"
         healthcheck:
-            test: ["CMD", "curl", "-s", "http://192.168.88.254:8545", "-o", "/dev/null"]
+            test: ["CMD", "curl", "-s", "http://host.docker.internal:8545", "-o", "/dev/null"]
             interval: 10s
             timeout: 5s
-            retries: 5
+            retries: 10
 
     deployer:
         build:

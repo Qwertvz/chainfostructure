@@ -1,6 +1,10 @@
 import { HardhatUserConfig } from "hardhat/config"
 import "@nomicfoundation/hardhat-toolbox"
 
+import * as dotenv from "dotenv"
+
+dotenv.config()
+
 const config: HardhatUserConfig = {
     solidity: "0.8.20",
     
@@ -13,14 +17,10 @@ const config: HardhatUserConfig = {
     defaultNetwork: "hardhat",
     networks: {
         localnet: {
-            url: "http://192.168.88.254:8545"
-        },
-        // localnet: {
-        //     url: "",
-        //     chainId: 31337,
-        //     accounts: [] // env
-        // }
+            url: `http://${process.env.INTERNAL_NODE_HOST}:${process.env.INTERNAL_NODE_PORT}`
+        }
     }
 }
+
 
 export default config
