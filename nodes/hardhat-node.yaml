@@ -5,3 +5,17 @@ services:
             dockerfile: Dockerfile
         ports:
             - "8545:8545"
+        healthcheck:
+            test: ["CMD", "curl", "-s", "http://192.168.88.254:8545", "-o", "/dev/null"]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+
+    deployer:
+        build:
+            context: ../deployer
+            dockerfile: Dockerfile
+
+        depends_on:
+            hh-node:
+                condition: service_healthy
